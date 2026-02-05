@@ -1,0 +1,59 @@
+body {
+  display: grid;
+  margin: 0;
+  grid-template-areas: "nav main";
+  min-height: 100vh;
+}
+
+header {
+  background-color: #bbbbbb;
+  text-align: center;
+  font-size: 36px;
+  display: flow-root;
+  padding: 1rem;
+}
+
+main {
+  grid-area: "main";
+}
+
+h1 {
+  text-align: center;
+}
+
+footer {
+  padding: 1rem;
+}
+
+button {
+  background: #fafbfc;
+  border: 1px solid #aaaaaa;
+  color: #24292e;
+  padding: 6px 16px;
+}
+
+#jumpMenu {
+  grid-area: "nav";
+  background-color: lightgrey;
+  max-width: 10rem;
+  text-align: center;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 1rem;
+  gap: 1rem;
+}
+
+#thanks {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  padding-right: 2rem;
+  background-color: #eeeeee;
+  border: 1px solid black;
+  margin: 0;
+  font-size: 24px;
+}

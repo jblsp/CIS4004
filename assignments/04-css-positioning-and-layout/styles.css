@@ -7,10 +7,11 @@ body {
 
 header {
   background-color: #bbbbbb;
-  text-align: center;
   font-size: 36px;
-  display: flow-root;
   padding: 1rem;
+  position: sticky;
+  text-align: center;
+  top: 0;
 }
 
 main {

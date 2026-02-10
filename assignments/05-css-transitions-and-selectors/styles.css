@@ -1,0 +1,140 @@
+body {
+  display: grid;
+  margin: 0;
+  grid-template-areas: "nav main";
+  grid-template-columns: 12.5rem 1fr;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #bbbbbb;
+  font-size: 36px;
+  padding: 1rem;
+  position: sticky;
+  text-align: center;
+  top: 0;
+}
+
+main {
+  grid-area: main;
+}
+
+h1 {
+  text-align: center;
+}
+
+footer {
+  padding: 1rem;
+}
+
+#container article a[href^="http"]::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 6px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232a5bd7' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'%3E%3C/path%3E%3Cpolyline points='15 3 21 3 21 9'%3E%3C/polyline%3E%3Cline x1='10' y1='14' x2='21' y2='3'%3E%3C/line%3E%3C/svg%3E");
+  background-size: contain;
+}
+
+#container article p:first-of-type::first-letter {
+  font-family: "Times New Roman";
+  font-size: 36px;
+}
+
+#container article h2,
+#container article p {
+  color: lightgrey;
+  max-height: 12rem;
+  overflow: hidden;
+  transition:
+    color 2s ease,
+    max-height 2s ease;
+}
+
+#container article:hover h2,
+#container article:hover p {
+  max-height: 1000px;
+  color: black;
+}
+
+#menuItems {
+  background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  grid-area: nav;
+  height: 100vh;
+  list-style: none;
+  margin: 0;
+  min-width: 12.5rem;
+  position: sticky;
+  text-align: center;
+  top: 0;
+}
+
+#menuItems button {
+  background: #fafbfc;
+  border: 1px solid #aaaaaa;
+  color: #24292e;
+  padding: 6px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#menuItems button:hover {
+  background-color: lightblue;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#recentArticles:hover + #jumpMenu,
+#jumpMenu:hover {
+  max-height: 500px;
+  opacity: 1;
+  visibility: visible;
+}
+
+#jumpMenu {
+  max-height: 0;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  transition:
+    max-height 0.5s ease,
+    opacity 0.5s ease;
+}
+
+#jumpMenu li a {
+  display: block;
+  padding: 5px 0;
+  text-decoration: none;
+  color: black;
+}
+
+#jumpMenu li a:hover {
+  background-color: grey;
+  color: blue;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 1rem;
+  gap: 1rem;
+}
+
+#thanks {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  padding-right: 2rem;
+  background-color: #eeeeee;
+  border: 1px solid black;
+  margin: 0;
+  font-size: 24px;
+}

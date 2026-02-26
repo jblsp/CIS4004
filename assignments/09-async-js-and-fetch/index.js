@@ -1,3 +1,20 @@
+function setCookie(name, value, days = 7) {
+  const expires = new Date(Date.now() + days * 864e5).toUTCString();
+  const path = window.location.pathname; // page specific
+  document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}; expires=${expires}; path=${path}`;
+}
+
+function getCookie(name) {
+  const cookies = document.cookie.split("; ").filter((c) => c.includes(`=`));
+  for (const cookie of cookies) {
+    const [key, val] = cookie.split("=");
+    if (decodeURIComponent(key) === name) {
+      return decodeURIComponent(val);
+    }
+  }
+  return null;
+}
+
 async function fetchPokemon(name) {
   if (name === "") {
     throw new Error("No name or ID given");
@@ -21,21 +38,24 @@ async function fetchPokemon(name) {
 }
 
 async function getPokemon(query) {
+  let id;
   // checks if the query is an id
   if (/^[0-9]+$/.test(query)) {
     id = query;
   } else {
-    id = localStorage.getItem(query);
+    id = getCookie(query);
   }
+
   if (id) {
-    let pokemon = localStorage.getItem(id);
+    const pokemon = getCookie(id);
     if (pokemon) {
       return JSON.parse(pokemon);
     }
   }
-  pokemon = await fetchPokemon(query);
-  localStorage.setItem(pokemon.name, pokemon.id);
-  localStorage.setItem(pokemon.id, JSON.stringify(pokemon));
+
+  const pokemon = await fetchPokemon(query);
+  setCookie(pokemon.name, pokemon.id);
+  setCookie(pokemon.id, JSON.stringify(pokemon));
   return pokemon;
 }
 

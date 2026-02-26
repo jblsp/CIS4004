@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pokemon Team Builder</title>
+    <link href="styles.css" rel="stylesheet" />
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <label for="findPokemon">Find Pokemon</label>
+    <div id="findPokemon">
+      <div id="loadedPokemon">
+        <form id="findPokemonForm">
+          <label for="search">Name or ID</label>
+          <input type="text" name="query" />
+          <input type="submit" value="Find" />
+        </form>
+        <p id="errMsg"></p>
+        <p id="loadedPokemonName"></p>
+        <img id="loadedPokemonImg" src="images/default.jpg" />
+        <audio id="loadedPokemonAudio" controls></audio>
+        <label for="selectMoves">Select Moves</label>
+        <div id="selectMoves">
+          <select name="Move 1" id="smove1"></select>
+          <select name="Move 2" id="smove2"></select>
+          <select name="Move 3" id="smove3"></select>
+          <select name="Move 4" id="smove4"></select>
+        </div>
+        <button id="addBtn">Add to Team</button>
+      </div>
+    </div>
+    <label for="team">Your Team</label>
+    <div id="team"></div>
+  </body>
+</html>
